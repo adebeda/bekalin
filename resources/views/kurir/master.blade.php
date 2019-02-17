@@ -3,7 +3,7 @@
 <head>
    <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Bekal.in</title>
+  <title>Kurir Bekal.in</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -81,20 +81,8 @@
         </div>
       </form>
       <ul class="sidebar-menu" data-widget="tree">
-        <li><a href="{{url('pemesanan')}}"><i class="fa fa-link"></i> <span>List Pengantaran</span></a></li>
-        
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Mengolah Menu</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{url('/admin/routes')}}">Melihat Menu</a></li>
-            <li><a href="{{url('add')}}">Tambah Menu</a></li>
-            <li><a href="{{url('edit')}}">Edit Menu</a></li>
-          </ul>
-        </li>
+        <li><a href="{{url('kurir')}}"><i class="fa fa-link"></i> <span>List Order</span></a></li>
+        <li><a href="{{url('listpengantaran')}}"><i class="fa fa-link"></i> <span>List Pengantaran</span></a></li>
       </ul>
     </section>
   </aside>

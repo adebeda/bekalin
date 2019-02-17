@@ -3,17 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Auth;
+use Auth;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use App\Pengiriman;
 use App\Product;
 use App\Pesanan;
+use App\Pengirimanfix;
+use App\Pengirimanselesai;
 use Images;
 use App\User;
 use App\Konsultasi;
 use App\Kritiksaran;
 use \Cart as Cart;
+use Session;
+
 class PemesananController extends Controller
 {
     public function showMenuPaketMakanan(){
@@ -60,7 +64,7 @@ class PemesananController extends Controller
         $pesanan->ket_pesanan = $request->input('ket_pesanan');
         $pesanan->tanggal = $request->input('tanggal');
         $pesanan->pukul = $request->input('pukul');
-
+        $pesanan->total = $request->input('total');
         $pesanan->save();
         Cart::destroy();
         return redirect()->back();
@@ -93,6 +97,51 @@ class PemesananController extends Controller
 
     }
 
+    public function kirimPesananFix(Request $request){
+            $kirim = Pengiriman::find($request->id);
+            // dd($id);
+
+            $pengirimanfix = New Pengirimanfix();
+            $pengirimanfix->penerima = $kirim->penerima;
+            $pengirimanfix->no_hp = $kirim->no_hp;
+            $pengirimanfix->alamat = $kirim->alamat;  
+            $pengirimanfix->ket_pesanan = $kirim->ket_pesanan;
+            $pengirimanfix->tanggal = $kirim->tanggal;
+            $pengirimanfix->pukul = $kirim->pukul;
+
+
+            $pengirimanfix->save();
+            $kirim->delete();
+              return redirect()->back();
+            // dd($kirim->no_rekening);
+
+    }
+
+
+    public function kirimPesananSelesai(Request $request){
+            // dd($request->id);
+            $selesai = Pengirimanfix::find($request->id);
+            // dd($id);
+            
+            $hapus = Auth::user()->id;
+            $kurir = User::where('id','=',$hapus)->first();
+            
+            
+            $pengirimanselesai = New Pengirimanselesai();
+            $pengirimanselesai->penerima = $selesai->penerima;
+            $pengirimanselesai->no_hp = $selesai->no_hp;
+            $pengirimanselesai->alamat = $selesai->alamat;  
+            $pengirimanselesai->ket_pesanan = $selesai->ket_pesanan;
+            $pengirimanselesai->tanggal = $selesai->tanggal;
+            $pengirimanselesai->pukul = $selesai->pukul;
+            $pengirimanselesai->hapus = Auth::User()->id;
+            $pengirimanselesai->kurir = $kurir->name;
+            $pengirimanselesai->save();
+            $selesai->delete();
+              return redirect()->back();
+            // dd($kirim->no_rekening);
+
+    }
 
     public function setKritiksaran(Request $request){
         // dd($request->Message);
@@ -111,6 +160,16 @@ class PemesananController extends Controller
         // dd($kritiksaran);
         return view('kritikSaran',['kritiksaran'=> $kritiksaran]);
 
+    }
+
+    public function viewPesananSelesai(){
+
+
+        $pesanan = Pengirimanselesai::all();
+        $kurir = User::all();
+        // dd($pengguna);
+        return view('pesananselesai', ['pesanan' => $pesanan]);
+        
     }
 
 }

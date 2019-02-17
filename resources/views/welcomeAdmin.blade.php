@@ -40,6 +40,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
                 <div class="banner_top">
                     <div class="col-md-6 col-sm-4 col-xs-4 logo">
                         <h1><a href="{{url('admin/routes')}}"><strong>Bekal</strong>.in</a></h1>
+                        <h1><a href="{{url('admin/routes')}}">Surabaya Restaurant</a></h1>
                     </div>
                     <div class="col-md-6 col-sm-8 col-xs-8 w3_menu">
                     @if (Auth::guest())
@@ -246,7 +247,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
                 <div class="flip-container">
                     <div class="flipper">
                         <div class="front">
-                            <img src="glorious/images/kucing.jpg" alt="" />
+                            <img src="glorious/images/adib.jpg" alt="" />
                         </div>
                         <div class="back">
                             <h4>Adib Wahyu Kuncoro</h4>
@@ -266,7 +267,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
                 <div class="flip-container">
                     <div class="flipper">
                         <div class="front">
-                            <img src="glorious/images/t2.jpg" alt="" />
+                            <img src="glorious/images/kucing.jpg" alt="" />
                         </div>
                         <div class="back">
                             <h4>Mutia Rahma Dewi</h4>
@@ -286,7 +287,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
                 <div class="flip-container">
                     <div class="flipper">
                         <div class="front">
-                            <img src="glorious/images/t3.jpg" alt="" />
+                            <img src="glorious/images/kucing.jpg" alt="" />
                         </div>
                         <div class="back">
                             <h4>Dara Tursina</h4>
@@ -423,42 +424,23 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
         <div class="agile-footer-grids">
             <div class="col-md-3 col-sm-6 col-xs-6 w3-agile-footer-grid">
                 <div class="logo-2">
-                    <h2><a href="index.html"><strong>Bekal</strong>.in<span>Restaurant</span></a></h2>
+                    <h2><a href="index.html"><strong>Bekal</strong>.in<span>Surabaya Restaurant</span></a></h2>
                 </div>
                 <ul>
-                    <li>Lorem ipsum dolor sit,</li>
-                    <li>BD 2 Mars,</li>
-                    <li>N° 136</li>
+                    
+                    <li>Gang Makam Blok H 18 Sukolilo Surabaya</li>
                     <li>Email</li>
-                    <li><a href="mailto:info@example.com">info@example.com</a></li>
+                    <li><a href="mailto:info@example.com">bekal@in.com</a></li>
                     <li>Phone Number</li>
-                    <li>+123 456 7890</li>
+                    <li>0895422861289</li>
                 </ul>               
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 w3-agile-footer-grid">
                 <h3>Opening Days</h3>
-                <div class="col-md-5 col-sm-5 col-xs-5 agile-opening">
-                    <ul>
-                        <li>Monday </li>
-                        <li>Tuesday </li>
-                        <li>Wednesday </li>
-                        <li>Thursday </li>
-                        <li>Friday </li>
-                        <li>Saturday </li>
-                        <li>Sunday </li>
-                    </ul>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-6 agile-opening">
-                    <ul>
-                        <li>8am-10pm</li>
-                        <li>9am-10pm</li>
-                        <li>7am-11pm</li>
-                        <li>5am-11pm</li>
-                        <li>6am-12pm</li>
-                        <li>7am-12pm</li>
-                        <li>4am-12pm</li>
-                    </ul>
-                </div>
+                <h3 style="font-size: 14px;">Senin - Jumat</h3>
+                <h3 style="font-size: 14px;">04.30 - 08.00</h3>
+               
+                
                 <div class="clearfix"> </div>
             </div>
             <div class="col-md-6 w3-agile-footer-grid grid-w3-1">
@@ -478,7 +460,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
     </div>
     <!-- copyright -->
     <div class="copyright">
-        <p>© 2017 Glorious . All Rights Reserved | Design by <a href="http://w3layouts.com/"> W3layouts</a> </p>
+        <p>© Bekalin </p>
     </div>
     <!-- //copyright -->
 </div>

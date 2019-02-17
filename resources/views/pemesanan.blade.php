@@ -24,7 +24,8 @@
 								<th>ALAMAT</th>
 								<th>PESANAN</th>
 								<th>TANGGAL</th>
-								<th>PUKUL</th>										
+								<th>PUKUL</th>
+								<th>TOTAL</th>										
 								<th>NO REKENING</th>
 								<th>ACTION</th>
 							</tr>
@@ -41,6 +42,7 @@
 									<td style="vertical-align: middle;">{{$pes->ket_pesanan}}</td>
 									<td style="vertical-align: middle;">{{$pes->tanggal}}</td>
 									<td style="vertical-align: middle;">{{$pes->pukul}}</td>
+									<td style="vertical-align: middle;background-color: #FFCECE;">{{$pes->total}}</td>
 									<td style="vertical-align: middle; background-color: #FFCECE;">{{$pes->no_rekening}}</td>
 									<td><a href="/pengiriman/{{ $pes->id }}" class="btn btn-success btn-lg" style="font-size: 12px;"  >Verifikasi</a></td>
 									</div>

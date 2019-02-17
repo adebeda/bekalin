@@ -78,23 +78,34 @@ Route::resource('shop', 'ProductController', ['only' => ['index', 'show']]);
 
 Route::resource('cart', 'CartController');
 Route::delete('emptyCart', 'CartController@emptyCart');
-Route::post('switchToWishlist/{id}', 'CartController@switchToWishlist');
+// Route::post('switchToWishlist/{id}', 'CartController@switchToWishlist');
 
-Route::resource('wishlist', 'WishlistController');
-Route::delete('emptyWishlist', 'WishlistController@emptyWishlist');
-Route::post('switchToCart/{id}', 'WishlistController@switchToCart');
+// Route::resource('wishlist', 'WishlistController');
+// Route::delete('emptyWishlist', 'WishlistController@emptyWishlist');
+// Route::post('switchToCart/{id}', 'WishlistController@switchToCart');
 
 
 Route::get('/checkout', 'PemesananController@viewCheckout');
 Route::post('/setPesanan', 'PemesananController@setPesanan');
 
 Route::get('/pemesanan', 'PemesananController@viewPemesanan');
+Route::get('/pesananselesai', 'PemesananController@viewPesananSelesai');
+
 Route::get('/kurir', 'kurirController@viewKurir');
+Route::get('/listpengantaran', 'kurirController@viewPengiriman');
 
 Route::get('/pengiriman/{id}', 'PemesananController@kirimPesanan');
+Route::get('/pengirimanfix/{id}', 'PemesananController@kirimPesananFix');
+Route::get('/pengirimanselesai/{id}', 'PemesananController@kirimPesananSelesai');
 
 Route::post('/setKritiksaran', 'PemesananController@setKritiksaran');
 Route::get('/getKritiksaran', 'PemesananController@getKritiksaran');
 
 Route::get('/tambahAnak', 'ProfilController@formAnak');
 Route::post('/tambahAnak', 'ProfilController@addAnak');
+
+Route::get('/tambahperforma/{id}', 'kurirController@tambahPerforma');
+
+
+Route::get('/performakurir', 'kurirController@performaKurir');
+

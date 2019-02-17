@@ -38,7 +38,7 @@
 									<td style="vertical-align: middle; ">{{$peng->ket_pesanan}}</td>
 									<td style="vertical-align: middle;background-color: #FFCECE; ">{{$peng->tanggal}}</td>
 									<td style="vertical-align: middle;background-color: #FFCECE;">{{$peng->pukul}}</td>
-									<td><a href="/pengirimanfix/{{ $peng->id }}" class="btn btn-danger btn-lg" style="font-size: 12px;"  >Ambil Order</a></td>
+									<td><a href="/pengirimanselesai/{{ $peng->id }}" class="btn btn-success btn-lg" style="font-size: 12px;"  >Selesai</a></td>
 									
 								</tr>
 							@endforeach

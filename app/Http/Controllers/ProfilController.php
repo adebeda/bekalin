@@ -72,6 +72,7 @@ class ProfilController extends Controller
     }
     public function showProfil(){
     	//fetch all posts //posts = paket , Post=Paket
+        
          $user = User::where('id',Auth::user()->id)->get();
           $anak = Anak::where('users_id',Auth::user()->id)->get();
         //return User::where('id',Auth::user()->id)->first();

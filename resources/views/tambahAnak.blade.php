@@ -50,14 +50,20 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
                         <div class="col-md-3 col-sm-4 col-xs-4 top-nav-text">
                             <a class="page-scroll" href="{{ url('/showProfil') }}" data-toggle="modal" data-hover="LOGIN">PROFIL PEMESAN</a>
                         </div>
-                        <div class="col-md-3 col-sm-4 col-xs-4 top-nav-text">
-                            <a class="page-scroll" href="{{ url('/settingProfil') }}" data-toggle="modal" data-hover="LOGIN">PENGATURAN PROFIL ORANG TUA</a>
+                          <div class="col-md-3 col-sm-4 col-xs-4 top-nav-text">
+                            <a class="page-scroll" href="{{ url('/settingProfil') }}" data-toggle="modal" data-hover="LOGIN">PENGATURAN PROFIL PEMESAN</a>
                         </div>
-                        <div class="col-md-3 col-sm-4 col-xs-4 top-nav-text">
-                            <a class="page-scroll" href="{{ url('/settingProfilAnak') }}" data-toggle="modal" data-hover="LOGIN">PENGATURAN PROFIL ANAK</a>
+                         <div class="col-md-3 col-sm-4 col-xs-4 top-nav-text">
+                            <a class="page-scroll" href="{{ url('/showProfilAnak') }}" data-toggle="modal" data-hover="LOGIN">PROFIL ANAK</a>
                         </div>
-                        <div class="col-md-3 col-sm-4 col-xs-4 top-nav-text">
-                            <a class="page-scroll" href="{{ url('/showProfil') }}" data-toggle="modal" data-hover="LOGIN">PROFIL ANAK</a>
+                        <div class="col-md-3 callbacks_container form-w3l-agil3">
+                           <div class="read-form">
+                                <form action="{{url('/tambahAnak')}}" method="get">
+                                    <div class="form-left-agileits-submit">
+                                        <input type="submit" value="+ Tambah Anak">
+                                    </div>
+                                </form>                      
+                            </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-6 top-nav-text">
                             <a class="page-scroll" href="{{ route('logout') }}" data-toggle="modal" data-hover="LOGIN" onclick="event.preventDefault();

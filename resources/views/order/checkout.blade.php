@@ -1,17 +1,24 @@
 @extends('cart.master')
 
 @section('content')
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <p><a href="{{ url('menu') }}">Home</a></p>
+      <p><a href="{{ url('/') }}">Home</a> <a href="{{ url('menu') }}">Menu</a></p>
+      <p></p>
+       <h3>PENGIRIMAN </h3> 
+       <button onclick="document.getElementById('id01').style.display='block'" style="font-size: 14px;" >Lihat Jadwal</button>
+      
       <form action="{{ url('/setPesanan') }}" method="POST">
         <input type="hidden" name="_token" value="{{csrf_token()}}">
         {!! csrf_field() !!}
         <div class="row">
           <div class="col-50">
-            <h3>Pengiriman</h3>
+
+           
             <label for="fname"><i class="fa fa-user"></i>Nama Penerima</label>
             <input type="text" id="fname" name="penerima" >
             <label for="email"><i class="fa fa-envelope"></i>Nomor HP</label>
@@ -36,7 +43,7 @@
           </div>
           
           <div class="col-50">
-            <h3>Pembayaran</h3>
+            <h3>PEMBAYARAN</h3>
             {{-- <label for="fname">Accepted Cards</label> --}}
             <div class="icon-container">
               <i class="fa fa-cc-visa" style="color:navy;"></i>
@@ -49,34 +56,26 @@
             <label for="ccnum">Nomor Rekening</label>
             <input type="text" id="ccnum" name="cardnumber" >
             <label for="expmonth">Jadwal Pengiriman</label>
-            <input type="date" name="tanggal"> <select name="pukul">
-             
-                <option value="05.30" <?php if ($lempar == '8'){ ?> disabled <?php   } ?> >05.30</option> 
-              
-                
+            <input type="date" name="tanggal"> 
+            <select name="pukul"> 
+                <option value="05.00" <?php if ($lempar == '8'){ ?> disabled <?php   } ?> >05.00</option> 
+                <option value="05.30" <?php if ($lempar == '8'){ ?> disabled <?php   } ?> >05.30</option>
                 <option value="06.00">06.00</option>
+                <option value="06.30">06.30</option>
                 <option value="07.00">07.00</option>
-                <option value="09.00">09.00</option>
               </select>
-            <input type="hidden" name="ket_pesanan" value="@foreach (Cart::content() as $item) {{ $item->name }} {{ $item->qty }} @endforeach" >
 
 
-            <div class="row">
-              <div class="col-50">
-                {{-- <label for="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2018"> --}}
-              </div>
-              <div class="col-50">
-                {{-- <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352"> --}}
-              </div>
-            </div>
+
+            <input type="hidden" name="ket_pesanan" value="@foreach (Cart::content() as $item) {{ $item->name }} {{ $item->qty }} | @endforeach" >
+             <input type="hidden" name="total" value="{{ Cart::instance('default')->subtotal() }}" >
           </div>
 
         </div>
-        <label>
-          <text style="color: red; font-style: italic; " > LAKUKAN PEMBAYARAN KE BNI </text> <br>
-          <p style="color: red; font-style: italic" > 12324143 A.N Adib Wahyu Kuncoro </p>
+     
+          <text style="color: red;" ><strong>PEMBAYARAN</strong> </text> <br>
+          <text style="color: red;" >0358181212 BNI</text> <br>
+          <p style="color: red; " > a.n Adib Wahyu Kuncoro </p>
         {{-- <input type="submit" value="Bayar" class="btn"> --}}
                 <button type="submit" class="btn">Bayar</button>
          
@@ -105,8 +104,191 @@
     </div>
   </div>
 </div>
+<div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-teal"> 
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h1>Bekal.<strong>in</strong></h1>
+      </header>
+      <div class="w3-container">
+        <h2 style="font-size: 25px;">Jadwal Pengantaran</h2>
+        <p align="center">
 
+          <table class="table table-bordered ">
+            <thead align="center" style="background-color: #CACAFF;">
+              <tr>
+                <th>HARI</th>
+                <th>WAKTU PENGANTARAN</th>
+                <th>SISA</th>
+                
+                
+                
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>Senin</td>
+                  <td>05.00</td>
+                  <td>10</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >05.30</td>
+                  <td >9</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >06.00</td>
+                  <td >10</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >06.30</td>
+                  <td >11</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >07.00</td>
+                  <td >20</td>
+                </tr>
+                <tr>
+                  <td >Selasa</td>
+                  <td >05.00</td>
+                  <td >13</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >05.30</td>
+                  <td >15</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >06.00</td>
+                  <td >12</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >06.30</td>
+                  <td >16</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >07.00</td>
+                  <td >19</td>
+                </tr>
+                <tr>
+                  <td >Rabu</td>
+                  <td >05.00</td>
+                  <td >14</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >05.30</td>
+                  <td >18</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >06.00</td>
+                  <td >12</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >06.30</td>
+                  <td >9</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >07.00</td>
+                  <td >13</td>
+                </tr>
+                <tr>
+                  <td >Kamis</td>
+                  <td >05.00</td>
+                  <td >12</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >05.30</td>
+                  <td >15</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >06.00</td>
+                  <td >19</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >06.30</td>
+                  <td >13</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >07.00</td>
+                  <td >14</td>
+                </tr>
+                <tr>
+                  <td >Jumat</td>
+                  <td >05.00</td>
+                  <td >8</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >05.30</td>
+                  <td >9</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >06.00</td>
+                  <td >12</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >06.30</td>
+                  <td >12</td>
+                </tr>
+                <tr>
+                  <td ></td>
+                  <td >07.00</td>
+                  <td >18</td>
+                </tr>
+              
+            </tbody>
+          </table>
 
+        </p>
+      </div>
+     {{--  <footer class="w3-container w3-teal">
+        <p>Modal Footer</p>
+      </footer> --}}
+    </div>
+  </div>
+  ​<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #4CAF50;
+}
+th, td {
+  text-align: center;
+  /*padding: 8px;*/
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+  tr:hover{
+        background-color: yellow;
+      }
+</style>
 <style type="text/css">
   
  .row {

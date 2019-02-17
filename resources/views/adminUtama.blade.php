@@ -81,7 +81,8 @@
       </form>
       <ul class="sidebar-menu" data-widget="tree">
         <li><a href="{{url('pemesanan')}}"><i class="fa fa-link"></i> <span>Pemesanan</span></a></li>
-        <li><a href=""><i class="fa fa-link"></i> <span>Performa Kurir</span></a></li>
+        <li><a href="{{url('performakurir')}}"><i class="fa fa-link"></i> <span>Performa Kurir</span></a></li>
+        <li><a href="{{url('pesananselesai')}}"><i class="fa fa-link"></i> <span>Pesanan Selesai</span></a></li>
         <li><a href="{{url('pengguna')}}"><i class="fa fa-link"></i> <span>Pengguna</span></a></li>
         <li><a href="{{url('adminGizi')}}"><i class="fa fa-link"></i> <span>Jawab Pertanyaannn</span></a></li>
         <li><a href="{{url('getKritiksaran')}}"><i class="fa fa-link"></i> <span>Kritik & Saran</span></a></li>
